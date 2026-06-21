@@ -1,0 +1,89 @@
+---
+name: "Tasks Todo App"
+description: "A scheduling and collaboration app for Home Assistant with MCP server integration"
+version: "0.1.0"
+slug: "tasks_todo_app"
+maintainers:
+  - name: "Alexander Lynn"
+    email: "alexander@example.com"
+url: "https://github.com/AlexanderLynn/tasks"
+documentation: "https://github.com/AlexanderLynn/tasks"
+repository: "https://github.com/AlexanderLynn/tasks"
+issues: "https://github.com/tasks/tasks/issues"
+
+# Home Assistant API access
+host_network: false
+homeassistant_api: false
+
+# Startup behavior
+startup: services
+boot: auto
+privileged: []
+
+# Network settings
+ports:
+  8080/tcp: 8080
+  3000/tcp: 3000
+
+# Storage volume for database
+volumes:
+  data: {}
+
+# Environment variables passed to the container
+environment:
+  - NODE_ENV=production
+  - DATABASE_PATH=/data/tasks.db
+  - API_PORT=8080
+  - API_HOST=0.0.0.0
+
+# Options that can be configured in Home Assistant UI
+options:
+  api_key: "default-key-change-me"
+  timezone: "UTC"
+  enable_mcp_server: false
+  log_level: "info"
+
+# Option schema for Home Assistant UI
+schema:
+  api_key:
+    name: "API Key"
+    description: "Default API key for authentication (change this!)"
+    example: "your-secret-key-here"
+    type: "string"
+    required: true
+  timezone:
+    name: "Timezone"
+    description: "IANA timezone for scheduling (e.g., America/New_York)"
+    example: "UTC"
+    type: "string"
+    required: true
+  enable_mcp_server:
+    name: "Enable MCP Server"
+    description: "Enable Claude Desktop MCP server support (stdio based)"
+    example: false
+    type: "boolean"
+    required: false
+  log_level:
+    name: "Log Level"
+    description: "Log level (debug, info, warn, error)"
+    example: "info"
+    type: "select"
+    options:
+      - "debug"
+      - "info"
+      - "warn"
+      - "error"
+    required: false
+
+# Ingress configuration (for web interface access)
+ingress: true
+ingress_port: 3000
+ingress_entry: "/"
+
+# Map add-on ports to host if needed
+ports_description:
+  8080/tcp: "API Server"
+  3000/tcp: "Frontend"
+
+# Services that the addon provides
+services: []

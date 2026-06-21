@@ -1,0 +1,10 @@
+---
+name: Tasks Todo App Repository
+url: https://github.com/AlexanderLynn/tasks-addon
+maintainer: Alexander Lynn
+addons:
+  tasks_todo_app:
+    name: Tasks Todo App
+    description: A Home Assistant addon for the Tasks Todo App with MCP server integration
+    slug: tasks_todo_app
+    repository: https://github.com/AlexanderLynn/tasks-addon
