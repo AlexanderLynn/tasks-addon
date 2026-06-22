@@ -6,10 +6,10 @@ slug: "tasks_todo_app"
 maintainers:
   - name: "Alexander Lynn"
     email: "alexander@example.com"
-url: "https://github.com/AlexanderLynn/tasks"
-documentation: "https://github.com/AlexanderLynn/tasks"
-repository: "https://github.com/AlexanderLynn/tasks"
-issues: "https://github.com/tasks/tasks/issues"
+url: "https://github.com/AlexanderLynn/tasks-addon"
+documentation: "https://github.com/AlexanderLynn/tasks-addon"
+repository: "https://github.com/AlexanderLynn/tasks-addon"
+issues: "https://github.com/AlexanderLynn/tasks-addon/issues"
 
 # Home Assistant API access
 host_network: false
